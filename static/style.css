@@ -1,0 +1,215 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed,
+        #2563eb
+    );
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.header p{
+    font-size:1.1rem;
+    opacity:0.9;
+}
+
+.card{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+    color:white;
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+
+.card h2{
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+/* File Upload */
+
+input[type="file"]{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#333;
+    margin-bottom:15px;
+}
+
+/* Dropdown */
+
+select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#111827;
+    margin-bottom:15px;
+    font-size:15px;
+    outline:none;
+}
+
+/* Text Areas */
+
+textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    resize:none;
+    margin-top:10px;
+    font-size:15px;
+    outline:none;
+}
+
+textarea[readonly]{
+    background:#f8fafc;
+    color:#111827;
+}
+
+textarea:not([readonly]){
+    background:white;
+    color:#111827;
+}
+
+/* Buttons */
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #00c6ff,
+        #0072ff
+    );
+    transition:0.3s ease;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Resume Score */
+
+.score-circle{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:white;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+/* Skills */
+
+.skills-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill-badge{
+    background:#22c55e;
+    color:white;
+    padding:10px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* Feedback */
+
+.feedback-card{
+    text-align:center;
+}
+
+.result-box{
+    background:white;
+    color:#333;
+    border-radius:15px;
+    padding:25px;
+}
+
+.result-box h1{
+    color:#2563eb;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.result-box p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .header h1{
+        font-size:2rem;
+    }
+
+    .header p{
+        font-size:1rem;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .score-circle{
+        width:120px;
+        height:120px;
+        font-size:1.5rem;
+    }
+
+    .result-box h1{
+        font-size:2rem;
+    }
+
+    button{
+        font-size:15px;
+    }
+}

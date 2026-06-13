@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🤖 AI Interview Assistant</h1>
+        <p>Resume Analysis • Skill Detection • Interview Evaluation</p>
+    </div>
+
+    <!-- Resume Upload -->
+
+    <div class="card">
+        <h2>📄 Upload Resume</h2>
+
+        <form action="/upload_resume"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                required>
+
+            <button type="submit">
+                Analyze Resume
+            </button>
+
+        </form>
+    </div>
+
+    {% if resume_score %}
+
+    <div class="card">
+        <h2>📊 Resume Match Score</h2>
+
+        <div class="score-circle">
+            {{ resume_score }}
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if skills %}
+
+    <div class="card">
+        <h2>🧠 Detected Skills</h2>
+
+        <div class="skills-container">
+
+            {% for skill in skills %}
+                <span class="skill-badge">
+                    {{ skill }}
+                </span>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% endif %}
+
+    <!-- Question Generator -->
+
+    <div class="card">
+
+        <h2>🎯 Interview Questions</h2>
+
+        <form action="/generate_question"
+              method="POST">
+
+            <select name="interview_type">
+
+                <option>Software Developer</option>
+                <option>Python Developer</option>
+                <option>Data Analyst</option>
+                <option>Cloud Engineer</option>
+                <option>AWS Engineer</option>
+
+            </select>
+
+            <button type="submit">
+                Generate AI Question
+            </button>
+
+        </form>
+
+    </div>
+
+    {% if question %}
+
+    <div class="card">
+
+        <h2>❓ Question</h2>
+
+        <textarea readonly rows="4">{{ question }}</textarea>
+
+    </div>
+
+    <div class="card">
+
+        <h2>✍️ Your Answer</h2>
+
+        <form action="/submit_answer"
+              method="POST">
+
+            <input
+                type="hidden"
+                name="question"
+                value="{{ question }}">
+
+            <textarea
+                name="answer"
+                rows="8"
+                placeholder="Type your answer..."
+                required></textarea>
+
+            <button type="submit">
+                Evaluate Answer
+            </button>
+
+        </form>
+
+    </div>
+
+    {% endif %}
+
+    {% if score %}
+
+    <div class="card feedback-card">
+
+        <h2>🤖 AI Evaluation</h2>
+
+        <div class="result-box">
+
+            <h1>{{ score }}</h1>
+
+            <p>{{ feedback }}</p>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
